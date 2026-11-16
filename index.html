@@ -62,7 +62,7 @@
       object-fit: cover;
     }
 
-    /* Avatar Circular Sobreposto na Borda (Escala Aumentada) */
+    /* Avatar Circular Sobreposto na Borda (Aumentado) */
     .profile-container {
       position: relative;
       margin-top: -75px;
@@ -115,7 +115,7 @@
       border-color: #404040;
     }
 
-    /* Cards Bento Grid (Proporcionados) */
+    /* Cards Bento Grid Padronizados */
     .bento-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -135,128 +135,28 @@
       border-color: #404040;
     }
 
-    .bento-card-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0.85;
+    /* Estilos e Cores Dedicadas para cada Cartão (Com gradientes e efeito cinza/colorido no hover) */
+    .bento-bg-letterboxd {
+      background: linear-gradient(135deg, #14181c 0%, #2c3440 100%);
       filter: grayscale(100%);
-      transition: filter 0.6s ease, transform 0.3s ease;
+      transition: filter 0.6s ease;
     }
-
-    .bento-card:hover .bento-card-bg {
+    .bento-card:hover .bento-bg-letterboxd {
       filter: grayscale(0%);
     }
 
-    .bento-card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%);
-      z-index: 2;
+    .bento-bg-goodreads {
+      background: linear-gradient(135deg, #f4f1ea 0%, #38220f 100%);
+      filter: grayscale(100%);
+      transition: filter 0.6s ease;
+    }
+    .bento-card:hover .bento-bg-goodreads {
+      filter: grayscale(0%);
     }
 
-    .bento-content {
-      position: relative;
-      z-index: 3;
-      padding: 1.5rem;
+    .bento-bg-tryhackme {
+      background: linear-gradient(135deg, #1b2430 0%, #881c1c 100%);
+      filter: grayscale(100%);
+      transition: filter 0.6s ease;
     }
-
-    .bento-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.2rem;
-    }
-
-    .bento-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Abas de Habilidades */
-    .nav-pills .nav-link.active {
-      background-color: #fff !important;
-      color: #000 !important;
-      font-weight: 600;
-    }
-    .nav-pills .nav-link {
-      color: var(--text-main);
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-
-    /* Modais e Formulário */
-    .modal-content {
-      background-color: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-    }
-    .modal-header, .modal-footer {
-      border-color: var(--border-color);
-    }
-    .btn-close {
-      filter: invert(1) grayscale(100%) brightness(200%);
-    }
-
-    .form-control {
-      background-color: #1a1a1a;
-      border: 1px solid var(--border-color);
-      color: #fff;
-    }
-    .form-control:focus {
-      background-color: #1a1a1a;
-      border-color: #666;
-      color: #fff;
-      box-shadow: none;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Fernanda</a>
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <i class="bi bi-list text-white fs-4"></i>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-lg-center gap-3 mt-3 mt-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
-          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-          <li class="nav-item">
-            <button class="btn btn-outline-light btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#readmeModal">
-              <i class="bi bi-file-text me-1"></i> README.md
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Banner com sua imagem real -->
-  <header style="margin-top: 56px;">
-    <div class="hero-banner">
-      <img src="https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/ZQgcazgRzbJkuBRgx8iEeg.jpg" alt="Banner do Portfólio">
-    </div>
-  </header>
-
-  <!-- Seção de
+    .bento-card:hover .bento-bg-try
