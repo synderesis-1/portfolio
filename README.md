@@ -1,7 +1,7 @@
 # Portfólio Pessoal - Fernanda Brunelli
 
 ## Nome do Aluno
-Fernanda Brunelli
+Fernanda
 
 ## Descrição do Portfólio
 Portfólio profissional e acadêmico desenvolvido com layout Bento-grid minimalista, estruturado em Bootstrap 5, refletindo competências em Defesa Cibernética e Desenvolvimento de Sistemas.
