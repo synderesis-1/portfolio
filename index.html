@@ -19,7 +19,7 @@
       --bg-card: #121212;
       --border-color: #262626;
       --text-main: #f5f5f7;
-      --text-muted: #8e8e93;
+      --text-muted: #b0b0b5;
     }
 
     body {
@@ -31,7 +31,7 @@
 
     /* Navbar Estilo Minimalista */
     .navbar {
-      background-color: rgba(5, 5, 5, 0.85) !important;
+      background-color: rgba(5, 5, 5, 0.9) !important;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
@@ -44,10 +44,10 @@
     }
 
     .nav-link:hover {
-      color: var(--text-muted) !important;
+      color: #fff !important;
     }
 
-    /* Banner Superior */
+    /* Banner Superior com Imagem Real */
     .hero-banner {
       width: 100%;
       height: 280px;
@@ -88,6 +88,12 @@
       object-fit: cover;
     }
 
+    /* Textos nítidos */
+    .profile-bio {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
     /* Links Sociais Estilo Pill */
     .pill-link {
       background-color: #1a1a1a;
@@ -109,7 +115,7 @@
       border-color: #404040;
     }
 
-    /* Cards Bento Grid */
+    /* Cards Bento Grid (Links Diretos) */
     .bento-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -117,7 +123,7 @@
       overflow: hidden;
       transition: transform 0.25s ease, border-color 0.25s ease;
       position: relative;
-      cursor: pointer;
+      text-decoration: none;
       height: 100%;
       min-height: 260px;
       display: flex;
@@ -147,7 +153,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, rgba(5,5,5,0.95) 10%, rgba(5,5,5,0.2) 70%);
+      background: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%);
       z-index: 2;
     }
 
@@ -165,7 +171,7 @@
     }
 
     .bento-subtitle {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
@@ -183,7 +189,7 @@
       margin-bottom: 8px;
     }
 
-    /* Modais Escuros */
+    /* Modais e Formulário */
     .modal-content {
       background-color: var(--bg-card);
       color: var(--text-main);
@@ -197,7 +203,6 @@
       filter: invert(1) grayscale(100%) brightness(200%);
     }
 
-    /* Formulário */
     .form-control {
       background-color: #1a1a1a;
       border: 1px solid var(--border-color);
@@ -253,12 +258,12 @@
   <section id="perfil" class="container">
     <div class="profile-container">
       <div class="avatar-wrapper">
-        <!-- Sua foto de perfil real -->
+        <!-- Foto de Perfil Real -->
         <img src="https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/MtidNCEATWyrWYizdRJTo8.jpg" alt="Fernanda Brunelli">
       </div>
-      <h1 class="h3 fw-bold mb-1">Fernanda Brunelli</h1>
-      <p class="text-muted small mb-3">Defesa Cibernética & Desenvolvimento de Sistemas</p>
-      <p class="text-muted mx-auto mb-4" style="max-width: 550px; font-size: 0.9rem;">
+      <h1 class="h3 fw-bold mb-1 text-white">Fernanda Brunelli</h1>
+      <p class="profile-bio mb-3">Defesa Cibernética & Desenvolvimento de Sistemas</p>
+      <p class="profile-bio mx-auto mb-4" style="max-width: 550px;">
         Estudante focada em Cibersegurança, automação com Python, administração Linux/Active Directory e desenvolvimento web moderno.
       </p>
       <div class="d-flex justify-content-center gap-2">
@@ -276,7 +281,7 @@
   <section id="habilidades" class="container py-5 border-top border-dark">
     <div class="row justify-content-center">
       <div class="col-lg-9">
-        <h2 class="h5 fw-bold mb-4 text-center">Habilidades & Formação Acadêmica</h2>
+        <h2 class="h5 fw-bold mb-4 text-center text-white">Habilidades & Formação Acadêmica</h2>
         
         <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -292,7 +297,7 @@
           <div class="tab-pane fade show active" id="pills-tech" role="tabpanel">
             <div class="row g-3">
               <div class="col-md-6">
-                <p class="fw-semibold mb-1 small text-muted">CIBERSEGURANÇA & REDES</p>
+                <p class="fw-semibold mb-1 small text-light">CIBERSEGURANÇA & REDES</p>
                 <div class="d-flex flex-wrap gap-2 mb-3">
                   <span class="badge bg-dark border border-secondary text-light">Linux & Bash</span>
                   <span class="badge bg-dark border border-secondary text-light">Active Directory</span>
@@ -301,7 +306,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <p class="fw-semibold mb-1 small text-muted">DESENVOLVIMENTO</p>
+                <p class="fw-semibold mb-1 small text-light">DESENVOLVIMENTO</p>
                 <div class="d-flex flex-wrap gap-2">
                   <span class="badge bg-dark border border-secondary text-light">Python (Automação)</span>
                   <span class="badge bg-dark border border-secondary text-light">HTML5 / CSS3 / JS</span>
@@ -313,7 +318,7 @@
           </div>
           <!-- Aba Educação -->
           <div class="tab-pane fade" id="pills-edu" role="tabpanel">
-            <ul class="list-unstyled mb-0 small">
+            <ul class="list-unstyled mb-0 small text-light">
               <li class="mb-3">
                 <strong class="text-white">Defesa Cibernética</strong> — FIAP (Último Período / Formação 2027)
               </li>
@@ -330,18 +335,18 @@
     </div>
   </section>
 
-  <!-- Seção de Projetos (Grade Bento Assimétrica + Modais) -->
+  <!-- Seção de Projetos (Grade Bento com Links Diretos) -->
   <section id="projetos" class="container py-5 border-top border-dark">
     <div class="text-center mb-5">
-      <h2 class="h5 fw-bold">Portfólio de Projetos</h2>
-      <p class="text-muted small">Clique em qualquer cartão para ver os detalhes técnicos.</p>
+      <h2 class="h5 fw-bold text-white">Portfólio de Projetos</h2>
+      <p class="profile-bio small">Clique em qualquer cartão para acessar diretamente a página externa.</p>
     </div>
 
     <div class="row g-4 justify-content-center" style="max-width: 900px; margin: 0 auto;">
       
       <!-- Cartão 1: Letterboxd -->
       <div class="col-md-5">
-        <div class="bento-card" data-bs-toggle="modal" data-bs-target="#modalLetterboxd" style="height: 280px;">
+        <a href="https://letterboxd.com" target="_blank" rel="noopener noreferrer" class="bento-card" style="height: 280px;">
           <svg class="bento-card-bg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
             <rect width="400" height="300" fill="#181818"/>
             <circle cx="120" cy="120" r="40" fill="#ff8000" opacity="0.3"/>
@@ -353,12 +358,12 @@
             <div class="bento-title">Letterboxd</div>
             <div class="bento-subtitle">Curadoria & Cinema Contemporâneo</div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Cartão 2: Art Portfolio -->
       <div class="col-md-7">
-        <div class="bento-card" data-bs-toggle="modal" data-bs-target="#modalArt" style="height: 280px;">
+        <a href="https://github.com/synderesis-1" target="_blank" rel="noopener noreferrer" class="bento-card" style="height: 280px;">
           <svg class="bento-card-bg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
             <rect width="600" height="300" fill="#1b1b1b"/>
             <path d="M300 60 C350 60 400 120 400 180 C400 240 350 260 300 260 C250 260 200 240 200 180 C200 120 250 60 300 60 Z" fill="#333" opacity="0.7"/>
@@ -368,12 +373,12 @@
             <div class="bento-title">Art Portfolio</div>
             <div class="bento-subtitle">Pintura a óleo e estudos clássicos</div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Cartão 3: Goodreads -->
       <div class="col-md-5">
-        <div class="bento-card" data-bs-toggle="modal" data-bs-target="#modalGoodreads" style="height: 280px;">
+        <a href="https://goodreads.com" target="_blank" rel="noopener noreferrer" class="bento-card" style="height: 280px;">
           <svg class="bento-card-bg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
             <rect width="400" height="300" fill="#151515"/>
             <rect x="100" y="80" width="200" height="140" fill="#262626" rx="4"/>
@@ -383,12 +388,12 @@
             <div class="bento-title">Goodreads</div>
             <div class="bento-subtitle">Leituras de filosofia e literatura</div>
           </div>
-        </div>
+        </a>
       </div>
 
-      <!-- Cartão 4: Python Apps -->
+      <!-- Cartão 4: Python & GitHub -->
       <div class="col-md-7">
-        <div class="bento-card" data-bs-toggle="modal" data-bs-target="#modalPython" style="height: 280px;">
+        <a href="https://github.com/synderesis-1" target="_blank" rel="noopener noreferrer" class="bento-card" style="height: 280px;">
           <svg class="bento-card-bg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
             <rect width="600" height="300" fill="#101418"/>
             <circle cx="300" cy="150" r="90" fill="#1e293b" opacity="0.5"/>
@@ -398,12 +403,12 @@
             <div class="bento-title">Python & GitHub Repos (`synderesis-1`)</div>
             <div class="bento-subtitle">Calculadoras de consumo e automação</div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Cartão 5: Catholic Cinema List (Longo) -->
       <div class="col-md-12">
-        <div class="bento-card" data-bs-toggle="modal" data-bs-target="#modalCinema" style="height: 220px;">
+        <a href="https://github.com/synderesis-1" target="_blank" rel="noopener noreferrer" class="bento-card" style="height: 220px;">
           <svg class="bento-card-bg" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg">
             <rect width="1000" height="220" fill="#131313"/>
             <path d="M0 110 Q 250 50, 500 110 T 1000 110 V 220 H 0 Z" fill="#202020" opacity="0.5"/>
@@ -416,7 +421,7 @@
             </div>
             <i class="bi bi-arrow-right text-white fs-5"></i>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
@@ -426,20 +431,20 @@
   <section id="contato" class="container py-5 border-top border-dark">
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
-        <h2 class="h5 fw-bold mb-3">Contato Profissional</h2>
-        <p class="text-muted small mb-4">Entre em contato para oportunidades em Cibersegurança e Desenvolvimento.</p>
+        <h2 class="h5 fw-bold mb-3 text-white">Contato Profissional</h2>
+        <p class="profile-bio mb-4">Entre em contato para oportunidades em Cibersegurança e Desenvolvimento.</p>
         
         <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!'); this.reset();">
           <div class="mb-3 text-start">
-            <label class="form-label small text-muted">Seu Nome</label>
+            <label class="form-label small text-light">Seu Nome</label>
             <input type="text" class="form-control" required placeholder="Digite seu nome">
           </div>
           <div class="mb-3 text-start">
-            <label class="form-label small text-muted">E-mail</label>
+            <label class="form-label small text-light">E-mail</label>
             <input type="email" class="form-control" required placeholder="seu@email.com">
           </div>
           <div class="mb-3 text-start">
-            <label class="form-label small text-muted">Mensagem</label>
+            <label class="form-label small text-light">Mensagem</label>
             <textarea class="form-control" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
           </div>
           <button type="submit" class="btn btn-light w-100 fw-semibold rounded-pill py-2">Enviar Mensagem</button>
@@ -455,83 +460,12 @@
     </div>
   </footer>
 
-  <!-- Modais Detalhados dos Projetos -->
-  <div class="modal fade" id="modalLetterboxd" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold">Letterboxd Profile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body small text-muted">
-          <p>Perfil pessoal utilizado para catalogar e registrar análises de cinema contemplativo, clássico e westerns.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modalArt" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold">Art Portfolio</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body small text-muted">
-          <p>Estudos independentes de pintura a óleo, inspirados em tratados clássicos de arte e proporção visual.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modalGoodreads" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold">Goodreads</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body small text-muted">
-          <p>Curadoria de leituras focadas em filosofia antiga, literatura clássica e ensaios humanísticos.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modalPython" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold">Python & GitHub Repos (`synderesis-1`)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body small text-muted">
-          <p>Repositório contendo automações em Python, scripts em PowerShell/Bash e aplicações práticas desenvolvidas durante a graduação em Defesa Cibernética e ETEC.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="modalCinema" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold">Catholic Cinema List</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body small text-muted">
-          <p>Lista temática de obras cinematográficas que exploram a profundidade espiritual, ética e estética tradicional.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Modal README.md Obrigatório -->
   <div class="modal fade" id="readmeModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content p-4">
         <div class="modal-header border-0">
-          <h5 class="modal-title fw-bold"><i class="bi bi-file-text me-2"></i>README.md (Obrigatório para entrega)</h5>
+          <h5 class="modal-title fw-bold text-white"><i class="bi bi-file-text me-2"></i>README.md (Obrigatório para entrega)</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-start small">
@@ -547,20 +481,19 @@ Portfólio profissional e acadêmico desenvolvido com layout Bento-grid minimali
 ## Tecnologias Utilizadas
 - HTML5 & CSS3
 - Bootstrap 5 & Bootstrap Icons
-- JavaScript (Modais e Interatividade)
 - GitHub Pages
 
 ## Link do Site Publicado
 https://synderesis-1.github.io/portifolio/
 
 ## Explicação do Funcionamento do Projeto
-O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões interativos em formato modal.
+O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões de redirecionamento direto.
 
 ## Descrição do Recurso Novo Adicionado
-Inclusão de uma seção dedicada de Habilidades & Formação com abas interativas do Bootstrap (`nav-pills`) e modais informativos dinâmicos em cada cartão de projeto.
+Inclusão de uma seção dedicada de Habilidades & Formação com abas interativas do Bootstrap (`nav-pills`) e links diretos integrados nos cartões de projetos.
 
 ## Como o Recurso foi Implementado
-Utilizando componentes nativos do Bootstrap 5 (`nav-pills` para alternância de conteúdo e `modal` para exibição detalhada dos projetos), estilizados com temas escuros consistentes.
+Utilizando componentes nativos do Bootstrap 5 (`nav-pills` para alternância de conteúdo e cards com links externos diretos), estilizados com temas escuros consistentes.
           </pre>
         </div>
         <div class="modal-footer border-0">
