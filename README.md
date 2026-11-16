@@ -1,4 +1,4 @@
-# Portfólio Pessoal - Fernanda Brunelli
+# Portfólio Pessoal - Fernanda
 
 ## Nome do Aluno
 Fernanda
