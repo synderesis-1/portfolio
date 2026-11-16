@@ -150,7 +150,7 @@
     }
 
     .card-tryhackme {
-      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://dolutech.com/wp-content/uploads/2025/01/image-4-1024x535.png');
+      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/ZQgcazgRzbJkuBRgx8iEeg.jpg');
     }
 
     .card-github {
@@ -246,6 +246,7 @@
           <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
           <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
           <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
           <li class="nav-item">
             <button class="btn btn-outline-light btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#readmeModal">
               <i class="bi bi-file-text me-1"></i> README.md
@@ -271,8 +272,9 @@
         <img src="https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/MtidNCEATWyrWYizdRJTo8.jpg" alt="Fernanda Brunelli">
       </div>
       <h1 class="h3 fw-bold mb-1 text-white">Fernanda</h1>
+      <p class="profile-bio mb-3">Defesa Cibernética e Desenvolvimento de Sistemas</p>
       <p class="profile-bio mx-auto mb-4" style="max-width: 550px;">
-        Estudante focada em Cibersegurança e Desenvolvimento.
+        Estudante focada em Cibersegurança, automação com Python, administração Linux/Active Directory e desenvolvimento.
       </p>
       <div class="d-flex justify-content-center gap-2">
         <a href="https://github.com/synderesis-1" target="_blank" class="pill-link">
@@ -296,7 +298,7 @@
             <button class="nav-link active rounded-pill px-4 py-2" id="pills-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-tech" type="button" role="tab">Habilidades Técnicas</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link rounded-pill px-4 py-2" id="pills-edu-tab" data-bs-toggle="pill" data-bs-target="#pills-edu" type="button" role="tab">Formação</button>
+            <button class="nav-link rounded-pill px-4 py-2" id="pills-edu-tab" data-bs-toggle="pill" data-bs-target="#pills-edu" type="button" role="tab">Formação & Certificações</button>
           </li>
         </ul>
 
@@ -326,10 +328,10 @@
           <div class="tab-pane fade" id="pills-edu" role="tabpanel">
             <ul class="list-unstyled mb-0 small text-light">
               <li class="mb-3">
-                <strong class="text-white">Defesa Cibernética</strong> — FIAP (Último Período / Formação 2026)
+                <strong class="text-white">Defesa Cibernética</strong> — FIAP (Último Período / Formação 2027)
               </li>
               <li class="mb-3">
-                <strong class="text-white">Desenvolvimento de Sistemas</strong> — ETEC (Técnico EAD)
+                <strong class="text-white">Desenvolvimento de Sistemas</strong> — ETEC (Técnico Online)
               </li>
               <li>
                 <strong class="text-white">TryHackMe</strong> — Top 1% Global Ranking em Práticas de Segurança
@@ -350,7 +352,7 @@
     <div class="row g-4 justify-content-center" style="max-width: 900px; margin: 0 auto;">
       
       <!-- Cartão 1: Letterboxd -->
-      <div class="col-md-7">
+      <div class="col-md-5">
         <a href="https://letterboxd.com/sinderese/list/150-favorites/" target="_blank" rel="noopener noreferrer" class="bento-card card-letterboxd">
           <div class="bento-card-overlay"></div>
           <div class="bento-content">
@@ -361,7 +363,7 @@
       </div>
 
       <!-- Cartão 2: Goodreads -->
-      <div class="col-md-5">
+      <div class="col-md-7">
         <a href="https://www.goodreads.com/user/show/181118466" target="_blank" rel="noopener noreferrer" class="bento-card card-goodreads">
           <div class="bento-card-overlay"></div>
           <div class="bento-content">
@@ -373,7 +375,7 @@
 
       <!-- Cartão 3: TryHackMe -->
       <div class="col-md-7">
-        <a href="https://tryhackme.com/p/synderesis" target="_blank" rel="noopener noreferrer" class="bento-card card-tryhackme">
+        <a href="https://tryhackme.com/@synderesis" target="_blank" rel="noopener noreferrer" class="bento-card card-tryhackme">
           <div class="bento-card-overlay"></div>
           <div class="bento-content">
             <div class="bento-title">TryHackMe</div>
@@ -396,10 +398,36 @@
     </div>
   </section>
 
+  <!-- Seção de Contato -->
+  <section id="contato" class="container py-5 border-top border-dark">
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="h5 fw-bold mb-3 text-white">Contato Profissional</h2>
+        <p class="profile-bio mb-4">Entre em contato para oportunidades em Cibersegurança e Desenvolvimento.</p>
+        
+        <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!'); this.reset();">
+          <div class="mb-3 text-start">
+            <label class="form-label small text-light">Seu Nome</label>
+            <input type="text" class="form-control" required placeholder="Digite seu nome">
+          </div>
+          <div class="mb-3 text-start">
+            <label class="form-label small text-light">E-mail</label>
+            <input type="email" class="form-control" required placeholder="seu@email.com">
+          </div>
+          <div class="mb-3 text-start">
+            <label class="form-label small text-light">Mensagem</label>
+            <textarea class="form-control" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-light w-100 fw-semibold rounded-pill py-2">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="text-center py-4">
     <div class="container">
-      <p class="mb-0">© 2026 Fernanda. Desenvolvido como Portfólio Acadêmico.</p>
+      <p class="mb-0">© 2026 Fernanda. Desenvolvido para Portfólio Acadêmico.</p>
     </div>
   </footer>
 
@@ -416,7 +444,7 @@
 # Portfólio Pessoal - Fernanda Brunelli
 
 ## Nome do Aluno
-Fernanda
+Fernanda Brunelli
 
 ## Descrição do Portfólio
 Portfólio profissional e acadêmico desenvolvido com layout Bento-grid minimalista, estruturado em Bootstrap 5, refletindo competências em Defesa Cibernética e Desenvolvimento de Sistemas.
@@ -433,7 +461,7 @@ https://synderesis-1.github.io/portifolio/
 O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões de redirecionamento direto com identidades visuais em gradiente e imagens de fundo personalizadas.
 
 ## Descrição do Recurso Novo Adicionado
-Inclusão de uma seção dedicada de Habilidades e Formação com abas interativas do Bootstrap (`nav-pills`) e cartões de projetos do TryHackMe e GitHub com proporções, escalas e avatar aprimorados.
+Inclusão de uma seção dedicada de Habilidades & Formação com abas interativas do Bootstrap (`nav-pills`), seção de Contato estruturada e cartões de projetos do TryHackMe e GitHub com proporções, escalas e avatar aprimorados.
 
 ## Como o Recurso foi Implementado
 Utilizando componentes nativos do Bootstrap 5 (`nav-pills` e grid responsivo) com estilização CSS personalizada para transições dinâmicas de cores no hover.
