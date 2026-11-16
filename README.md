@@ -12,7 +12,7 @@ Portfólio profissional e acadêmico desenvolvido com layout Bento-grid minimali
 - GitHub Pages
 
 ## Link do Site Publicado
-https://synderesis-1.github.io/portifolio/
+https://synderesis-1.github.io/portfolio/
 
 ## Explicação do Funcionamento do Projeto
 O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões de redirecionamento direto com identidades visuais em gradiente e imagens de fundo personalizadas.
