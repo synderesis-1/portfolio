@@ -1,0 +1,1259 @@
+<!-- ... existing code ... -->
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-void: #050505;
+      --bg-surface: #0c0c0c;
+      --bg-card: #121212;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --text-primary: #f4f4f5;
+      --text-secondary: #8e8e93;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 68px;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Navbar minimalista */
+    .minimal-navbar {
+      background-color: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .minimal-navbar .nav-link {
+      color: #8e8e93;
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 0.4rem 0.75rem;
+      transition: color 0.2s ease;
+    }
+
+    .minimal-navbar .nav-link:hover,
+    .minimal-navbar .nav-link.active {
+      color: #f4f4f5;
+    }
+
+    /* Banner texturizado estilo pintura a óleo */
+    .canvas-banner {
+      position: relative;
+      width: 100%;
+      height: 225px;
+      background-color: #5b636a;
+      overflow: visible;
+    }
+
+    @media (min-width: 768px) {
+      .canvas-banner {
+        height: 255px;
+      }
+    }
+
+    /* Avatar circular sobreposto na junção do banner */
+    .avatar-seam {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+      z-index: 20;
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #e7e5e0;
+      border: 3px solid #050505;
+    }
+
+    /* Container centralizado na proporção da referência */
+    .editorial-container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Links discretos */
+    .subtle-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 10px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: #d4d4d8;
+      font-size: 0.8rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .subtle-link:hover {
+      background-color: #161618;
+      color: #ffffff;
+    }
+
+    /* Abas minimalistas (Recurso Novo: Habilidades & Formação) */
+    .minimal-tabs {
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 1.25rem;
+    }
+
+    .minimal-tabs .nav-link {
+      background: transparent;
+      border: 0;
+      border-bottom: 1.5px solid transparent;
+      border-radius: 0;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.5rem 0.1rem;
+      margin-bottom: -1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .minimal-tabs .nav-link:hover {
+      color: #e4e4e7;
+    }
+
+    .minimal-tabs .nav-link.active {
+      background: transparent;
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .skill-row {
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      background-color: var(--bg-surface);
+    }
+
+    .timeline-row {
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background-color: var(--bg-surface);
+    }
+
+    /* Grade Bento Assimétrica fiel à imagem de referência */
+    .bento-card {
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      background-color: var(--bg-card);
+      border: 0;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .bento-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .bento-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .bento-vignette {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0.52) 78%,
+        rgba(0, 0, 0, 0.88) 100%
+      );
+      pointer-events: none;
+    }
+
+    .bento-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      color: #ffffff;
+    }
+
+    .bento-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+    }
+
+    /* Proporções exatas da grade Bento da imagem original */
+    .bento-h-short { height: 150px; }
+    .bento-h-tall  { height: 270px; }
+    .bento-h-med   { height: 195px; }
+    .bento-h-medlg { height: 235px; }
+    .bento-h-wide  { height: 195px; }
+
+    @media (min-width: 768px) {
+      .bento-h-short { height: 142px; }
+      .bento-h-tall  { height: 292px; }
+      .bento-h-med   { height: 194px; }
+      .bento-h-medlg { height: 240px; }
+      .bento-h-wide  { height: 205px; }
+    }
+
+    /* Formulário minimalista */
+    .minimal-input {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: #f4f4f5;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      padding: 0.62rem 0.85rem;
+    }
+
+    .minimal-input::placeholder {
+      color: #52525b;
+    }
+
+    .minimal-input:focus {
+      background-color: #111113;
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      box-shadow: none;
+    }
+
+    /* Modais Bootstrap em tema escuro limpo */
+    .dark-modal .modal-content {
+      background-color: #0d0d0e;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      color: #f4f4f5;
+    }
+
+    .dark-modal .modal-header,
+    .dark-modal .modal-footer {
+      border-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .section-spacer {
+      margin-top: 3.25rem;
+      margin-bottom: 3.25rem;
+    }
+
+    /* Transição sutil de entrada */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. MENU DE NAVEGAÇÃO FUNCIONAL (Bootstrap 5 Minimal Navbar) -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top minimal-navbar py-2">
+    <div class="container editorial-container">
+      <a class="navbar-brand text-white fw-medium fs-6 m-0" href="#perfil" style="letter-spacing: -0.02em;">
+        Fernanda Brunelli
+      </a>
+
+      <button
+        class="navbar-toggler border-0 shadow-none p-1"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Alternar navegação"
+      >
+        <span class="navbar-toggler-icon" style="width: 1.2em; height: 1.2em;"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end mt-2 mt-md-0" id="mainNavbar">
+        <ul class="navbar-nav align-items-md-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="#perfil">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#habilidades">Habilidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projetos">Projetos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+          <li class="nav-item ms-md-2">
+            <button
+              type="button"
+              class="btn btn-link nav-link text-decoration-none"
+              data-bs-toggle="modal"
+              data-bs-target="#readmeModal"
+            >
+              README.md
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. SEÇÃO DE PERFIL (Banner texturizado + Avatar circular sobreposto + Bio) -->
+  <header id="perfil" class="pt-5">
+    <div class="canvas-banner">
+      <div class="w-100 h-100 overflow-hidden">
+        <img id="banner-art" alt="Banner texturizado" class="w-100 h-100 object-fit-cover" />
+      </div>
+
+      <!-- Avatar Circular Sobreposto na Borda -->
+      <div class="avatar-seam">
+        <img id="avatar-art" alt="Ilustração de perfil de Fernanda Brunelli" class="w-100 h-100 object-fit-cover" />
+      </div>
+    </div>
+
+    <div class="editorial-container text-center" style="padding-top: 84px;">
+      <h1 class="h4 fw-semibold text-white mb-1" style="letter-spacing: -0.02em;">
+        Fernanda Brunelli
+      </h1>
+      <p class="small mb-3" style="color: var(--text-secondary);">
+        Defesa Cibernética &amp; Desenvolvimento de Sistemas
+      </p>
+
+      <p class="mx-auto mb-4" style="max-width: 500px; color: #a1a1aa; font-size: 0.86rem; line-height: 1.65;">
+        Estudante focada em segurança da informação, automação com Python, administração Linux/Active Directory e desenvolvimento web minimalista.
+      </p>
+
+      <!-- Links Sociais Discretos -->
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a
+          href="https://github.com/synderesis-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="subtle-link"
+        >
+          <i class="bi bi-github"></i>
+          <span>github.com/synderesis-1</span>
+        </a>
+        <a
+          href="https://www.linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="subtle-link"
+        >
+          <i class="bi bi-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="editorial-container pb-5">
+    <!-- 3. RECURSO NOVO: SEÇÃO DE HABILIDADES & FORMAÇÃO (Abas Bootstrap Minimalistas) -->
+    <section id="habilidades" class="section-spacer reveal-up" aria-labelledby="heading-habilidades">
+      <div class="d-flex flex-column flex-sm-row align-items-sm-end justify-content-between gap-2 mb-3">
+        <h2 id="heading-habilidades" class="h6 fw-semibold text-white m-0" style="letter-spacing: -0.01em;">
+          Habilidades &amp; Formação
+        </h2>
+
+        <ul class="nav minimal-tabs" id="skillsTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="tab-tecnicas"
+              data-bs-toggle="pill"
+              data-bs-target="#pane-tecnicas"
+              type="button"
+              role="tab"
+              aria-controls="pane-tecnicas"
+              aria-selected="true"
+            >
+              Competências
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="tab-formacao"
+              data-bs-toggle="pill"
+              data-bs-target="#pane-formacao"
+              type="button"
+              role="tab"
+              aria-controls="pane-formacao"
+              aria-selected="false"
+            >
+              Formação
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="skillsTabContent">
+        <!-- Aba 1: Competências Técnicas -->
+        <div
+          class="tab-pane fade show active"
+          id="pane-tecnicas"
+          role="tabpanel"
+          aria-labelledby="tab-tecnicas"
+          tabindex="0"
+        >
+          <div class="row g-2">
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Python</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">Automação, lógica e scripts CLI</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Linux &amp; Bash</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">Administração, permissões e hardening</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Active Directory</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">GPOs, PowerShell e identidades</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Redes &amp; Segurança</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">TCP/IP, firewalls e análise defensiva</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Desenvolvimento Web</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">HTML5, CSS3, JavaScript e Bootstrap</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <div class="skill-row h-100">
+                <div class="fw-medium text-white small mb-1">Governança</div>
+                <div style="color: var(--text-secondary); font-size: 0.75rem;">ISO 27001, NIST e LGPD</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aba 2: Formação & Prática -->
+        <div
+          class="tab-pane fade"
+          id="pane-formacao"
+          role="tabpanel"
+          aria-labelledby="tab-formacao"
+          tabindex="0"
+        >
+          <div class="d-flex flex-column gap-2">
+            <div class="timeline-row">
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mb-1">
+                <h3 class="small fw-medium text-white m-0">Tecnólogo em Defesa Cibernética</h3>
+                <span style="color: var(--text-secondary); font-size: 0.74rem;">FIAP · Em andamento</span>
+              </div>
+              <p class="m-0" style="color: var(--text-secondary); font-size: 0.78rem; line-height: 1.55;">
+                Arquitetura de redes seguras, resposta a incidentes, criptografia aplicada e segurança defensiva.
+              </p>
+            </div>
+
+            <div class="timeline-row">
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mb-1">
+                <h3 class="small fw-medium text-white m-0">Técnico em Desenvolvimento de Sistemas</h3>
+                <span style="color: var(--text-secondary); font-size: 0.74rem;">ETEC</span>
+              </div>
+              <p class="m-0" style="color: var(--text-secondary); font-size: 0.78rem; line-height: 1.55;">
+                Lógica de programação em Python, bancos de dados relacionais e desenvolvimento web responsivo.
+              </p>
+            </div>
+
+            <div class="timeline-row">
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mb-1">
+                <h3 class="small fw-medium text-white m-0">TryHackMe — Top 1% Global</h3>
+                <span style="color: var(--text-secondary); font-size: 0.74rem;">Laboratórios CTF</span>
+              </div>
+              <p class="m-0" style="color: var(--text-secondary); font-size: 0.78rem; line-height: 1.55;">
+                Prática contínua em enumeração, escalonamento de privilégios Linux/Windows e análise de logs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SEÇÃO DE PROJETOS (Grade Bento Assimétrica exata da referência + Modais Bootstrap) -->
+    <section id="projetos" class="section-spacer reveal-up" aria-labelledby="heading-projetos">
+      <div class="d-flex align-items-baseline justify-content-between mb-3">
+        <h2 id="heading-projetos" class="h6 fw-semibold text-white m-0" style="letter-spacing: -0.01em;">
+          Projetos
+        </h2>
+        <span style="color: var(--text-secondary); font-size: 0.75rem;">
+          Selecione um cartão para detalhes
+        </span>
+      </div>
+
+      <!-- Grade Bento Assimétrica com Bootstrap Grid -->
+      <div class="row g-3">
+        <!-- Coluna Esquerda (col-md-5): Card 1 Curto + Card 2 Vertical Alto -->
+        <div class="col-12 col-md-5 d-flex flex-column gap-3">
+          <!-- Card 1 (Top Left) -->
+          <button
+            type="button"
+            class="bento-card bento-h-short"
+            data-project-id="0"
+            aria-label="Abrir detalhes de Calculadora de Consumo de Energia"
+          >
+            <img id="proj-img-0" alt="Calculadora de Consumo de Energia" />
+            <div class="bento-vignette"></div>
+            <div class="bento-caption">
+              <span class="bento-title">Consumo de Energia</span>
+            </div>
+          </button>
+
+          <!-- Card 2 (Tall Bottom Left) -->
+          <button
+            type="button"
+            class="bento-card bento-h-tall"
+            data-project-id="1"
+            aria-label="Abrir detalhes de Classificador de Consumo de Água"
+          >
+            <img id="proj-img-1" alt="Classificador de Consumo de Água" />
+            <div class="bento-vignette"></div>
+            <div class="bento-caption">
+              <span class="bento-title">Consumo de Água</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Coluna Direita (col-md-7): Card 3 Médio + Card 4 Médio-Alto -->
+        <div class="col-12 col-md-7 d-flex flex-column gap-3">
+          <!-- Card 3 (Top Right) -->
+          <button
+            type="button"
+            class="bento-card bento-h-med"
+            data-project-id="2"
+            aria-label="Abrir detalhes de Desconto Progressivo"
+          >
+            <img id="proj-img-2" alt="Desconto Progressivo" />
+            <div class="bento-vignette"></div>
+            <div class="bento-caption">
+              <span class="bento-title">Desconto Progressivo</span>
+            </div>
+          </button>
+
+          <!-- Card 4 (Middle Right) -->
+          <button
+            type="button"
+            class="bento-card bento-h-medlg"
+            data-project-id="3"
+            aria-label="Abrir detalhes de Laboratórios CTF e Hardening"
+          >
+            <img id="proj-img-3" alt="Laboratórios CTF e Hardening" />
+            <div class="bento-vignette"></div>
+            <div class="bento-caption">
+              <span class="bento-title">Laboratórios CTF &amp; Redes</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Linha Inferior Full-Width (col-12): Card 5 -->
+        <div class="col-12">
+          <button
+            type="button"
+            class="bento-card bento-h-wide"
+            data-project-id="4"
+            aria-label="Abrir detalhes de Curadoria Artística e Cinema"
+          >
+            <img id="proj-img-4" alt="Curadoria Artística e Cinema" />
+            <div class="bento-vignette"></div>
+            <div class="bento-caption">
+              <span class="bento-title">Curadoria Artística &amp; Cinema</span>
+              <i class="bi bi-arrow-right text-white"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SEÇÃO DE CONTATO (Formulário Bootstrap com validação JS e feedback imediato) -->
+    <section id="contato" class="section-spacer mb-0 reveal-up" aria-labelledby="heading-contato">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-5">
+          <h2 id="heading-contato" class="h6 fw-semibold text-white mb-2" style="letter-spacing: -0.01em;">
+            Contato
+          </h2>
+          <p class="mb-3" style="color: var(--text-secondary); font-size: 0.82rem; line-height: 1.6;">
+            Disponível para oportunidades em Defesa Cibernética, automação em Python e projetos web.
+          </p>
+
+          <div class="d-flex flex-column gap-2">
+            <a
+              href="https://github.com/synderesis-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="subtle-link justify-content-between"
+            >
+              <span>GitHub (@synderesis-1)</span>
+              <i class="bi bi-arrow-up-right" style="color: var(--text-secondary);"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="subtle-link justify-content-between"
+            >
+              <span>LinkedIn</span>
+              <i class="bi bi-arrow-up-right" style="color: var(--text-secondary);"></i>
+            </a>
+
+            <button
+              type="button"
+              id="copy-email-btn"
+              class="subtle-link justify-content-between w-100"
+            >
+              <span>fernanda.brunelli@exemplo.com</span>
+              <i class="bi bi-copy" style="color: var(--text-secondary);"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <form id="contactForm" class="needs-validation" novalidate>
+            <div class="mb-2.5">
+              <label for="contactName" class="form-label mb-1" style="color: #a1a1aa; font-size: 0.78rem;">Nome</label>
+              <input
+                type="text"
+                class="form-control minimal-input"
+                id="contactName"
+                placeholder="Seu nome"
+                required
+                minlength="2"
+              />
+              <div class="invalid-feedback" style="font-size: 0.74rem;">
+                Por favor, informe seu nome.
+              </div>
+            </div>
+
+            <div class="mb-2.5">
+              <label for="contactEmail" class="form-label mb-1" style="color: #a1a1aa; font-size: 0.78rem;">E-mail</label>
+              <input
+                type="email"
+                class="form-control minimal-input"
+                id="contactEmail"
+                placeholder="voce@dominio.com"
+                required
+              />
+              <div class="invalid-feedback" style="font-size: 0.74rem;">
+                Informe um endereço de e-mail válido.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label mb-1" style="color: #a1a1aa; font-size: 0.78rem;">Mensagem</label>
+              <textarea
+                class="form-control minimal-input"
+                id="contactMessage"
+                rows="3"
+                placeholder="Escreva sua mensagem..."
+                required
+                minlength="10"
+              ></textarea>
+              <div class="invalid-feedback" style="font-size: 0.74rem;">
+                A mensagem deve ter pelo menos 10 caracteres.
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn w-100 py-2 fw-medium"
+              style="background-color: #f4f4f5; color: #050505; border-radius: 10px; font-size: 0.82rem;"
+            >
+              Enviar mensagem
+            </button>
+          </form>
+
+          <!-- Alerta de Feedback Instantâneo -->
+          <div
+            id="contactSuccessAlert"
+            class="alert d-none mt-3 mb-0 py-2 px-3 small"
+            style="background-color: var(--bg-surface); border: 1px solid var(--border-subtle); color: #e4e4e7; border-radius: 10px;"
+            role="alert"
+          >
+            Mensagem enviada com sucesso. Obrigada pelo contato.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. RODAPÉ LIMPO -->
+  <footer class="border-top py-4" style="border-color: rgba(255, 255, 255, 0.06) !important;">
+    <div class="editorial-container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2" style="color: var(--text-secondary); font-size: 0.76rem;">
+      <div>Fernanda Brunelli</div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="https://github.com/synderesis-1" target="_blank" rel="noopener noreferrer" class="text-decoration-none" style="color: var(--text-secondary);">
+          GitHub
+        </a>
+        <span>·</span>
+        <button
+          type="button"
+          class="btn btn-link p-0 text-decoration-none"
+          style="color: var(--text-secondary); font-size: 0.76rem;"
+          data-bs-toggle="modal"
+          data-bs-target="#readmeModal"
+        >
+          README.md
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL INTERATIVO DE DETALHES DO PROJETO -->
+  <div class="modal fade dark-modal" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <span id="modalProjectCategory" class="d-block" style="color: var(--text-secondary); font-size: 0.75rem;"></span>
+            <h3 class="modal-title h6 fw-semibold text-white m-0" id="projectModalLabel"></h3>
+          </div>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="rounded-3 overflow-hidden mb-3" style="height: 170px;">
+            <img id="modalProjectImg" alt="" class="w-100 h-100 object-fit-cover" />
+          </div>
+          <p id="modalProjectDesc" class="small mb-3" style="color: #a1a1aa; line-height: 1.65;"></p>
+          <div id="modalProjectTags" class="d-flex flex-wrap gap-1.5"></div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-sm text-secondary" data-bs-dismiss="modal">
+            Fechar
+          </button>
+          <a
+            id="modalProjectRepo"
+            href="https://github.com/synderesis-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm px-3 fw-medium d-inline-flex align-items-center gap-1.5"
+            style="background-color: #f4f4f5; color: #050505; border-radius: 8px;"
+          >
+            <i class="bi bi-github"></i>
+            <span>Ver no GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DO README.MD OBRIGATÓRIO -->
+  <div class="modal fade dark-modal" id="readmeModal" tabindex="-1" aria-labelledby="readmeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title h6 fw-semibold text-white m-0" id="readmeModalLabel">README.md</h3>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small mb-2" style="color: var(--text-secondary);">
+            Conteúdo pronto para salvar como <code>README.md</code> na raiz do repositório GitHub:
+          </p>
+          <pre
+            id="readmeContent"
+            class="p-3 rounded-3 small mb-0"
+            style="background-color: #050505; border: 1px solid var(--border-subtle); color: #d4d4d8; white-space: pre-wrap; font-size: 0.78rem; line-height: 1.55;"
+          ></pre>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-sm text-secondary" data-bs-dismiss="modal">
+            Fechar
+          </button>
+          <button
+            type="button"
+            id="copyReadmeBtn"
+            class="btn btn-sm px-3 fw-medium d-inline-flex align-items-center gap-1.5"
+            style="background-color: #f4f4f5; color: #050505; border-radius: 8px;"
+          >
+            <i class="bi bi-clipboard"></i>
+            <span>Copiar README.md</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+    <div
+      id="liveToast"
+      class="toast align-items-center border-0"
+      style="background-color: #141416; color: #f4f4f5; border: 1px solid var(--border-subtle) !important; border-radius: 10px;"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body small" id="toastMessage"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto shadow-none" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /**
+     * Ilustrações vetoriais limpas que preservam fielmente a atmosfera
+     * e composição visual da imagem de referência (image_eff2de.jpg).
+     */
+    const ARTWORK = {
+      banner: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" preserveAspectRatio="none">
+          <defs>
+            <filter id="oilGrain">
+              <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/>
+              <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.14 0"/>
+            </filter>
+            <linearGradient id="canvasTone" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#697178"/>
+              <stop offset="36%" stop-color="#7c7a71"/>
+              <stop offset="70%" stop-color="#5d6873"/>
+              <stop offset="100%" stop-color="#766e61"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="320" fill="#4f4d49"/>
+          <rect x="65" y="0" width="1070" height="320" fill="url(#canvasTone)"/>
+          <path d="M65 0 L68 320 M1135 0 L1132 320" stroke="#9e8f77" stroke-width="3" opacity="0.55"/>
+          <ellipse cx="320" cy="140" rx="260" ry="120" fill="#8b7d66" opacity="0.28"/>
+          <ellipse cx="860" cy="180" rx="310" ry="140" fill="#4c5c6b" opacity="0.35"/>
+          <path d="M180 40 Q420 120 650 30 T1080 90" stroke="#b3a792" stroke-width="18" fill="none" opacity="0.14"/>
+          <rect x="65" y="0" width="1070" height="320" filter="url(#oilGrain)"/>
+        </svg>
+      `)}`,
+
+      avatar: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+          <defs>
+            <radialGradient id="paperBg" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="#f2f1ed"/>
+              <stop offset="100%" stop-color="#d6d4ce"/>
+            </radialGradient>
+            <linearGradient id="darkHair" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1b1b1d"/>
+              <stop offset="60%" stop-color="#2c2c30"/>
+              <stop offset="100%" stop-color="#141416"/>
+            </linearGradient>
+          </defs>
+          <rect width="240" height="240" fill="url(#paperBg)"/>
+          <g stroke="#525256" stroke-width="1.1" fill="none" opacity="0.65">
+            <path d="M42 195 Q36 145 55 110 M46 155 Q25 142 18 125 M48 135 Q66 122 72 108"/>
+            <circle cx="35" cy="118" r="10"/><circle cx="35" cy="118" r="3"/>
+            <circle cx="22" cy="152" r="8"/><circle cx="22" cy="152" r="2.5"/>
+            <path d="M196 190 Q204 140 185 100 M194 145 Q214 132 220 115 M191 122 Q176 108 172 92"/>
+            <circle cx="192" cy="84" r="11"/><circle cx="192" cy="84" r="3.2"/>
+            <circle cx="212" cy="136" r="8"/><circle cx="212" cy="136" r="2.5"/>
+          </g>
+          <path d="M72 95 C64 140, 56 185, 68 232 L172 232 C184 185, 176 140, 168 95 C164 42, 76 42, 72 95 Z" fill="url(#darkHair)"/>
+          <path d="M105 148 L103 182 Q120 192 137 182 L135 148 Z" fill="#e5e3de" stroke="#3a3a3d" stroke-width="1.2"/>
+          <path d="M68 235 Q85 186 105 182 Q120 194 135 182 Q155 186 172 235 Z" fill="#dcdad4" stroke="#4a4a4e" stroke-width="1.2"/>
+          <path d="M87 86 C87 125, 102 152, 120 154 C138 152, 153 125, 153 86 C153 56, 87 56, 87 86 Z" fill="#efede8" stroke="#2c2c30" stroke-width="1.4"/>
+          <path d="M90 105 Q96 136 118 151 Q101 143 92 118 Z" fill="#b8b6b0" opacity="0.45"/>
+          <path d="M95 93 Q104 89 112 93" stroke="#232326" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M128 93 Q136 89 145 93" stroke="#232326" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <ellipse cx="104" cy="101" rx="6.2" ry="3.8" fill="#ffffff" stroke="#1f1f22" stroke-width="1.3"/>
+          <circle cx="104.5" cy="101" r="2.7" fill="#18181a"/>
+          <ellipse cx="136" cy="101" rx="6.2" ry="3.8" fill="#ffffff" stroke="#1f1f22" stroke-width="1.3"/>
+          <circle cx="135.5" cy="101" r="2.7" fill="#18181a"/>
+          <path d="M120 98 L118 117 Q120 119 123 117" stroke="#454549" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M111 131 Q116 128.5 120 130.5 Q124 128.5 129 131 Q120 136.5 111 131 Z" fill="#9e9b95" stroke="#2d2d30" stroke-width="1.1"/>
+          <path d="M120 52 C102 64, 92 94, 86 142 C82 175, 76 205, 84 235 L98 235 C92 195, 92 145, 96 105 C100 78, 112 63, 120 55 Z" fill="#1c1c1f"/>
+          <path d="M120 52 C138 64, 148 94, 154 142 C158 175, 164 205, 156 235 L142 235 C148 195, 148 145, 144 105 C140 78, 128 63, 120 55 Z" fill="#222226"/>
+        </svg>
+      `)}`,
+
+      // Card 0: Consumo de Energia (cena P&B com luzes no horizonte)
+      energia: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="eSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#353538"/>
+              <stop offset="55%" stop-color="#68686d"/>
+              <stop offset="100%" stop-color="#141416"/>
+            </linearGradient>
+            <radialGradient id="eGlow" cx="72%" cy="46%" r="24%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+              <stop offset="45%" stop-color="#cfcfcf" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#eSky)"/>
+          <rect x="0" y="130" width="400" height="90" fill="#1c1c1f"/>
+          <circle cx="288" cy="100" r="58" fill="url(#eGlow)"/>
+          <g stroke="#8e8e94" stroke-width="1.2" opacity="0.55">
+            <line x1="90" y1="42" x2="90" y2="145"/><line x1="210" y1="35" x2="210" y2="145"/><line x1="330" y1="48" x2="330" y2="145"/>
+            <path d="M0 62 Q90 82 210 56 T400 72" fill="none"/>
+            <path d="M0 78 Q90 96 210 72 T400 88" fill="none"/>
+          </g>
+          <g fill="#f4f4f5" opacity="0.9">
+            <circle cx="62" cy="158" r="2.2"/><circle cx="115" cy="160" r="2.4"/>
+            <circle cx="172" cy="159" r="2.2"/><circle cx="228" cy="161" r="2.5"/>
+            <circle cx="284" cy="159" r="2.2"/><circle cx="338" cy="160" r="2.3"/>
+          </g>
+        </svg>
+      `)}`,
+
+      // Card 1: Consumo de Água (colagem vertical editorial fiel ao card esquerdo alto)
+      agua: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="420" fill="#e5e5e0"/>
+          <rect x="6" y="6" width="92" height="96" rx="4" fill="#d8b4bc"/>
+          <circle cx="52" cy="54" r="24" fill="none" stroke="#6b7280" stroke-width="2"/>
+          <rect x="104" y="6" width="92" height="96" rx="4" fill="#1e2226"/>
+          <path d="M150 24 C166 48, 174 62, 150 82 C126 62, 134 48, 150 24 Z" fill="#9ca3af"/>
+          <rect x="202" y="6" width="92" height="96" rx="4" fill="#3b4248"/>
+          <path d="M214 70 Q248 42 282 70" stroke="#d1d5db" stroke-width="2.5" fill="none"/>
+          <rect x="6" y="108" width="92" height="96" rx="4" fill="#c7c5be"/>
+          <circle cx="52" cy="156" r="14" stroke="#52525b" stroke-width="1.5" fill="none"/>
+          <circle cx="52" cy="156" r="28" stroke="#71717a" stroke-width="1" fill="none"/>
+          <rect x="104" y="108" width="92" height="96" rx="4" fill="#d6d3cb"/>
+          <rect x="128" y="128" width="44" height="58" rx="22" fill="#52525b"/>
+          <rect x="202" y="108" width="92" height="96" rx="4" fill="#b89f65"/>
+          <path d="M220 185 L248 125 L276 185 Z" fill="#3f3f46"/>
+          <rect x="6" y="210" width="92" height="96" rx="4" fill="#475569"/>
+          <path d="M16 260 Q52 240 88 260 T16 280" stroke="#e2e8f0" stroke-width="2" fill="none"/>
+          <rect x="104" y="210" width="92" height="96" rx="4" fill="#334155"/>
+          <circle cx="150" cy="258" r="20" stroke="#94a3b8" stroke-width="2" fill="none"/>
+          <rect x="202" y="210" width="92" height="96" rx="4" fill="#9a8456"/>
+          <circle cx="248" cy="258" r="24" fill="#e7e5e4" opacity="0.75"/>
+          <rect x="6" y="312" width="92" height="102" rx="4" fill="#1e293b"/>
+          <rect x="28" y="336" width="48" height="56" rx="6" fill="#64748b"/>
+          <rect x="104" y="312" width="92" height="102" rx="4" fill="#cbd5e1"/>
+          <path d="M124 395 Q150 330 176 395" fill="#475569"/>
+          <rect x="202" y="312" width="92" height="102" rx="4" fill="#78716c"/>
+          <circle cx="248" cy="362" r="20" stroke="#e7e5e4" stroke-width="1.5" fill="none"/>
+        </svg>
+      `)}`,
+
+      // Card 2: Desconto Progressivo (desenho clássico / caderno de esboços da referência)
+      desconto: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="360" height="320" fill="#161618"/>
+          <polygon points="222,14 346,6 354,284 242,274" fill="#d4d3ce"/>
+          <polygon points="24,8 224,14 242,294 18,300" fill="#e6e5e0"/>
+          <polygon points="222,14 244,294 230,294 214,14" fill="#b5b4af"/>
+          <ellipse cx="122" cy="126" rx="46" ry="56" fill="#9a9892"/>
+          <path d="M84 148 Q98 118 122 118 Q146 118 160 148 Q154 186 122 192 Q90 186 84 148 Z" fill="#6e6d68"/>
+          <path d="M62 294 Q78 214 122 212 Q166 214 182 294 Z" fill="#8b8983"/>
+        </svg>
+      `)}`,
+
+      // Card 3: Laboratórios CTF & Redes (pilha horizontal de livros P&B da referência)
+      ctf: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" preserveAspectRatio="xMidYMid slice">
+          <rect width="360" height="360" fill="#0b0b0d"/>
+          <rect x="34" y="24" width="318" height="32" rx="2" fill="#1b1b1e"/>
+          <rect x="26" y="60" width="326" height="52" rx="2" fill="#d4d4d8"/>
+          <rect x="210" y="60" width="142" height="52" fill="#3f3f46"/>
+          <rect x="38" y="116" width="314" height="56" rx="2" fill="#3f3f46"/>
+          <rect x="44" y="176" width="308" height="44" rx="2" fill="#27272a"/>
+          <rect x="36" y="224" width="316" height="62" rx="2" fill="#a1a1aa"/>
+          <circle cx="195" cy="255" r="22" fill="#27272a"/>
+          <rect x="30" y="290" width="322" height="50" rx="2" fill="#18181b"/>
+        </svg>
+      `)}`,
+
+      // Card 4: Curadoria Artística & Cinema (cena P&B na névoa da referência)
+      cinema: `data:image/svg+xml;utf8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="cMist" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d4d4d8"/>
+              <stop offset="48%" stop-color="#87878d"/>
+              <stop offset="100%" stop-color="#222225"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="340" fill="url(#cMist)"/>
+          <path d="M220 0 Q430 95 620 230 L800 230 L800 0 Z" fill="#52525b" opacity="0.55"/>
+          <path d="M560 0 C540 120, 580 240, 565 340 L800 340 L800 0 Z" fill="#1c1c1f"/>
+          <path d="M0 245 Q360 225 800 255 L800 340 L0 340 Z" fill="#141416"/>
+          <g stroke="#27272a" stroke-width="7" stroke-linecap="round">
+            <line x1="342" y1="88" x2="342" y2="238"/>
+            <line x1="306" y1="122" x2="378" y2="122"/>
+          </g>
+          <g fill="#323236">
+            <path d="M135 245 L148 135 Q165 112 182 135 L196 245 Z"/>
+            <circle cx="165" cy="122" r="14" fill="#27272a"/>
+            <path d="M210 245 L224 132 Q242 108 260 132 L274 245 Z"/>
+            <circle cx="242" cy="118" r="14" fill="#232326"/>
+            <path d="M282 245 L292 162 Q306 144 320 162 L330 245 Z" fill="#45454a"/>
+            <path d="M402 245 L416 128 Q434 104 452 128 L468 245 Z"/>
+            <circle cx="434" cy="114" r="15" fill="#202023"/>
+          </g>
+          <rect x="485" y="218" width="315" height="16" rx="4" fill="#4a4a50" opacity="0.85"/>
+        </svg>
+      `)}`
+    };
+
+    const PROJECTS = [
+      {
+        category: 'Python CLI',
+        title: 'Consumo de Energia',
+        image: ARTWORK.energia,
+        description:
+          'Aplicação em linha de comando desenvolvida em Python para estimar o consumo mensal em quilowatts-hora (kWh) e o custo financeiro de aparelhos residenciais com base em potência e tempo de uso diário.',
+        tags: ['Python 3', 'Lógica Matemática', 'Validação CLI'],
+        repo: 'https://github.com/synderesis-1'
+      },
+      {
+        category: 'Python & Sustentabilidade',
+        title: 'Consumo de Água',
+        image: ARTWORK.agua,
+        description:
+          'Sistema lógico em Python que analisa o consumo diário per capita de água, classifica o perfil de uso em faixas de sustentabilidade e apresenta recomendações práticas de economia.',
+        tags: ['Python 3', 'Estruturas Condicionais', 'Análise de Dados'],
+        repo: 'https://github.com/synderesis-1'
+      },
+      {
+        category: 'Python & Regras de Negócio',
+        title: 'Desconto Progressivo',
+        image: ARTWORK.desconto,
+        description:
+          'Motor de cálculo comercial que aplica faixas progressivas de desconto conforme o volume ou valor total da compra, exibindo detalhamento de economia e validação de entradas.',
+        tags: ['Python 3', 'Regras Comerciais', 'Algoritmos'],
+        repo: 'https://github.com/synderesis-1'
+      },
+      {
+        category: 'Segurança da Informação',
+        title: 'Laboratórios CTF & Redes',
+        image: ARTWORK.ctf,
+        description:
+          'Documentação técnica, scripts de automação em Bash/PowerShell e procedimentos de hardening aplicados em laboratórios de Defesa Cibernética, Active Directory e desafios TryHackMe (Top 1%).',
+        tags: ['Linux Hardening', 'Active Directory', 'Bash & PowerShell', 'ISO 27001'],
+        repo: 'https://github.com/synderesis-1'
+      },
+      {
+        category: 'Design & Curadoria',
+        title: 'Curadoria Artística & Cinema',
+        image: ARTWORK.cinema,
+        description:
+          'Interface pessoal minimalista inspirada em editoriais de arte e cinema clássico, combinando grade assimétrica Bento, paleta monocromática profunda e responsividade com Bootstrap 5.',
+        tags: ['HTML5', 'CSS3', 'Bootstrap 5', 'JavaScript'],
+        repo: 'https://github.com/synderesis-1'
+      }
+    ];
+
+    const README_TEMPLATE = `# Portfólio Pessoal — Fernanda Brunelli
+
+### Aluna: Fernanda Brunelli
+**Repositório:** \`synderesis-1\`
+
+## Descrição do Portfólio
+Portfólio pessoal profissional desenvolvido com estética minimalista escura inspirada em diretrizes editoriais Bento-grid, estruturado em **Bootstrap 5** e voltado para a apresentação de projetos em Defesa Cibernética e Desenvolvimento de Sistemas.
+
+## Tecnologias Utilizadas
+- **HTML5 & CSS3** (Design minimalista responsivo)
+- **Bootstrap 5** (Grid system, navbar e modais interativos)
+- **JavaScript (ES6+)** (Validação de formulários, manipulação dinâmica e modais)
+- **GitHub Pages** (Hospedagem e publicação)
+
+## Link do Site Publicado
+- **URL no GitHub Pages:** \`https://synderesis-1.github.io/portifolio/\` *(ou URL do repositório)*
+
+## Explicação do Funcionamento
+O site é composto por um cabeçalho editorial com banner texturizado e avatar circular sobreposto, seguido por um menu de navegação responsivo fixo. Possui seções de **Perfil**, **Habilidades & Formação** (com abas interativas), **Projetos** (grade bento assimétrica com abertura de detalhes via Modais do Bootstrap) e **Contato** com validação em tempo real.
+
+## Recurso Novo Adicionado
+Como recurso avançado além da base da aula, foram implementados:
+1. **Grade Bento Assimétrica Responsiva com Modais Dinâmicos:** Os cartões reagem ao toque/hover com transições suaves e abrem modais dedicados contendo a descrição técnica e tecnologias de cada projeto.
+2. **Abas Interativas de Habilidades & Formação:** Alternância fluida entre competências técnicas e trajetória acadêmica/CTF.
+3. **Visualizador e Copiador de README integrados:** Modal interativo para copiar a documentação diretamente para o repositório.
+
+## Como o Recurso Foi Implementado
+- **Modais e Abas:** Utilizou-se os componentes nativos do **Bootstrap 5 (JS Bundle)** em conjunto com manipuladores de eventos em JavaScript puro que injetam dinamicamente as informações do vetor \`PROJECTS\` ao clicar em cada cartão da grade Bento.
+- **Validação de Formulário:** Validação nativa do Bootstrap combinada com feedback visual em JavaScript puro.
+`;
+
+    // Inicialização e preenchimento dinâmico
+    document.addEventListener('DOMContentLoaded', function () {
+      // Atribuir imagens de fundo vetorizadas aos elementos correspondentes
+      document.getElementById('banner-art').src = ARTWORK.banner;
+      document.getElementById('avatar-art').src = ARTWORK.avatar;
+
+      PROJECTS.forEach((proj, idx) => {
+        const imgEl = document.getElementById(`proj-img-${idx}`);
+        if (imgEl) {
+          imgEl.src = proj.image;
+        }
+      });
+
+      // Configurar conteúdo do Modal de Projetos
+      const projectModal = document.getElementById('projectModal');
+      if (projectModal) {
+        projectModal.addEventListener('show.bs.modal', function (event) {
+          const button = event.relatedTarget;
+          const projectId = button.getAttribute('data-project-id');
+          const proj = PROJECTS[projectId];
+
+          if (proj) {
+            document.getElementById('modalProjectCategory').textContent = proj.category;
+            document.getElementById('projectModalLabel').textContent = proj.title;
+            document.getElementById('modalProjectImg').src = proj.image;
+            document.getElementById('modalProjectDesc').textContent = proj.description;
+            document.getElementById('modalProjectRepo').href = proj.repo;
+
+            const tagsContainer = document.getElementById('modalProjectTags');
+            tagsContainer.innerHTML = '';
+            proj.tags.forEach(tag => {
+              const span = document.createElement('span');
+              span.className = 'badge';
+              span.style.backgroundColor = '#1c1c1f';
+              span.style.color = '#d4d4d8';
+              span.style.border = '1px solid rgba(255, 255, 255, 0.08)';
+              span.style.fontWeight = '400';
+              span.style.fontSize = '0.72rem';
+              span.style.padding = '0.3rem 0.55rem';
+              span.textContent = tag;
+              tagsContainer.appendChild(span);
+            });
+          }
+        });
+      }
+
+      // Preencher conteúdo do README no modal
+      const readmeContainer = document.getElementById('readmeContent');
+      if (readmeContainer) {
+        readmeContainer.textContent = README_TEMPLATE;
+      }
+
+      // Copiar README.md
+      const copyReadmeBtn = document.getElementById('copyReadmeBtn');
+      if (copyReadmeBtn) {
+        copyReadmeBtn.addEventListener('click', function () {
+          const textArea = document.createElement('textarea');
+          textArea.value = README_TEMPLATE;
+          document.body.appendChild(textArea);
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            showToast('README.md copiado com sucesso para a área de transferência!');
+          } catch (err) {
+            showToast('Erro ao copiar README.');
+          }
+          document.body.removeChild(textArea);
+        });
+      }
+
+      // Copiar E-mail
+      const copyEmailBtn = document.getElementById('copy-email-btn');
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', function () {
+          const emailText = 'fernanda.brunelli@exemplo.com';
+          const textArea = document.createElement('textarea');
+          textArea.value = emailText;
+          document.body.appendChild(textArea);
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            showToast('E-mail copiado para a área de transferência!');
+          } catch (err) {
+            showToast('Erro ao copiar e-mail.');
+          }
+          document.body.removeChild(textArea);
+        });
+      }
+
+      // Validação do Formulário de Contato
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (!contactForm.checkValidity()) {
+            event.stopPropagation();
+            contactForm.classList.add('was-validated');
+          } else {
+            contactForm.classList.remove('was-validated');
+            contactForm.reset();
+            const successAlert = document.getElementById('contactSuccessAlert');
+            successAlert.classList.remove('d-none');
+            showToast('Mensagem enviada com sucesso!');
+            setTimeout(() => {
+              successAlert.classList.add('d-none');
+            }, 5000);
+          }
+        }, false);
+      }
+
+      // Intersection Observer para animações sutis de revelação
+      const observerOptions = {
+        threshold: 0.08
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // Função auxiliar para exibir Toast
+    function showToast(message) {
+      const toastEl = document.getElementById('liveToast');
+      const toastMessage = document.getElementById('toastMessage');
+      if (toastEl && toastMessage) {
+        toastMessage.textContent = message;
+        const toast = new bootstrap.Toast(toastEl, { delay: 3500 });
+        toast.show();
+      }
+    }
+  </script>
+</body>
+</html>
