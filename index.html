@@ -115,7 +115,7 @@
       border-color: #404040;
     }
 
-    /* Cards Bento Grid Padronizados com Cores e Hover Fluido */
+    /* Cards Bento Grid Padronizados com Imagens e Efeito Hover Gradual */
     .bento-card {
       border: 1px solid var(--border-color);
       border-radius: 20px;
@@ -127,29 +127,34 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      transition: filter 0.6s ease, transform 0.3s ease, border-color 0.3s ease;
     }
 
     .bento-card:hover {
       transform: translateY(-6px);
       border-color: #52525b;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      filter: grayscale(0%);
     }
 
-    /* Cores e Gradientes Vivos e Elegantes para cada Cartão */
+    /* Banners Personalizados para cada Cartão */
     .card-letterboxd {
-      background: linear-gradient(135deg, #0d1b12 0%, #113f21 50%, #1b8542 100%);
+      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/ZQgcazgRzbJkuBRgx8iEeg.jpg');
     }
 
     .card-goodreads {
-      background: linear-gradient(135deg, #24190e 0%, #4a2e12 50%, #704214 100%);
+      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/3tDrLbFRSDQvJYHkndQQbJ.jpg');
     }
 
     .card-tryhackme {
-      background: linear-gradient(135deg, #101722 0%, #1e293b 50%, #991b1b 100%);
+      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://media.bio.site/sites/9be19f63-5973-4d33-b15b-1945602fa80e/ZQgcazgRzbJkuBRgx8iEeg.jpg');
     }
 
     .card-github {
-      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+      background-image: linear-gradient(to top, rgba(5,5,5,0.95) 15%, rgba(5,5,5,0.2) 70%), url('https://avatars.githubusercontent.com/u/319710356?s=400&u=10bb06eb2ebc4333a9c0886a6f6474cd3916fff1&v=4');
     }
 
     .bento-card-overlay {
@@ -392,11 +397,10 @@
     </div>
   </section>
 
- 
   <!-- Footer -->
   <footer class="text-center py-4">
     <div class="container">
-      <p class="mb-0">© 2026 Fernanda Desenvolvido para Portfólio Acadêmico.</p>
+      <p class="mb-0">© 2026 Fernanda. Desenvolvido para Portfólio Acadêmico.</p>
     </div>
   </footer>
 
@@ -427,13 +431,13 @@ Portfólio profissional e acadêmico desenvolvido com layout Bento-grid minimali
 https://synderesis-1.github.io/portifolio/
 
 ## Explicação do Funcionamento do Projeto
-O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões de redirecionamento direto com identidades visuais em gradiente.
+O site utiliza uma estrutura modular dividida em seções (Perfil, Habilidades, Projetos e Contato) com navegação fluida por âncoras e cartões de redirecionamento direto com identidades visuais em gradiente e imagens de fundo personalizadas.
 
 ## Descrição do Recurso Novo Adicionado
 Inclusão de uma seção dedicada de Habilidades & Formação com abas interativas do Bootstrap (`nav-pills`) e cartões de projetos do TryHackMe e GitHub com proporções, escalas e avatar aprimorados.
 
 ## Como o Recurso foi Implementado
-Utilizando componentes nativos do Bootstrap 5 (`nav-pills` e grid responsivo) com estilização CSS personalizada para gradientes refinados e interatividade fluida.
+Utilizando componentes nativos do Bootstrap 5 (`nav-pills` e grid responsivo) com estilização CSS personalizada para transições dinâmicas de cores no hover.
           </pre>
         </div>
         <div class="modal-footer border-0">
